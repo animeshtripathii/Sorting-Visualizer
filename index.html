@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Sorting Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="background"></div>
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>Sorting Visualizer</h1>
+                <p>Visualize sorting algorithms in action</p>
+            </div>
+            
+            <div class="sidebar-content">
+                <!-- Algorithm Selection -->
+                <div class="control-group">
+                    <label for="algorithm-select">Algorithm</label>
+                    <select id="algorithm-select" class="algorithm-select">
+                        <option value="bubble">Bubble Sort</option>
+                        <option value="selection">Selection Sort</option>
+                        <option value="insertion">Insertion Sort</option>
+                        <option value="merge">Merge Sort</option>
+                        <option value="quick">Quick Sort</option>
+                        <option value="heap">Heap Sort</option>
+                    </select>
+                </div>
+                
+                <!-- Array Type Selection -->
+                <div class="control-group">
+                    <label for="array-type">Array Type</label>
+                    <select id="array-type" class="algorithm-select">
+                        <option value="random">Random</option>
+                        <option value="nearlySorted">Nearly Sorted</option>
+                        <option value="reversed">Reversed</option>
+                        <option value="fewUnique">Few Unique Values</option>
+                    </select>
+                </div>
+                
+                <!-- Color Scheme Selection -->
+                <div class="control-group">
+                    <label for="color-scheme">Color Scheme</label>
+                    <select id="color-scheme" class="algorithm-select">
+                        <option value="default">Default</option>
+                        <option value="rainbow">Rainbow</option>
+                        <option value="heat">Heat</option>
+                        <option value="cool">Cool</option>
+                    </select>
+                </div>
+                
+                <!-- Array Size Control -->
+                <div class="control-group">
+                    <label for="size-slider">Array Size</label>
+                    <div class="slider-container">
+                        <input type="range" id="size-slider" class="modern-slider" min="5" max="50" value="20">
+                        <span class="slider-value" id="size-value">20</span>
+                    </div>
+                </div>
+                
+                <!-- Speed Control -->
+                <div class="control-group">
+                    <label for="speed-slider">Speed</label>
+                    <div class="slider-container">
+                        <input type="range" id="speed-slider" class="modern-slider" min="1" max="10" value="5">
+                        <span class="slider-value" id="speed-value">5</span>
+                    </div>
+                </div>
+                
+                <!-- Toggle Switches -->
+                <div class="toggle-group">
+                    <div class="toggle-container">
+                        <input type="checkbox" id="step-mode">
+                        <label for="step-mode" class="toggle-switch"></label>
+                        <label for="step-mode" class="toggle-text">Step Mode</label>
+                    </div>
+                    
+                    <div class="toggle-container">
+                        <input type="checkbox" id="show-values">
+                        <label for="show-values" class="toggle-switch"></label>
+                        <label for="show-values" class="toggle-text">Show Values</label>
+                    </div>
+                    
+                    <div class="toggle-container">
+                        <input type="checkbox" id="high-contrast">
+                        <label for="high-contrast" class="toggle-switch"></label>
+                        <label for="high-contrast" class="toggle-text">High Contrast</label>
+                    </div>
+                </div>
+                
+                <!-- Control Buttons -->
+                <div class="button-group">
+                    <button id="generate" class="btn primary">Generate New Array</button>
+                    <button id="start" class="btn success">Start</button>
+                    <button id="next" class="btn info" disabled>Next Step</button>
+                    <button id="reset" class="btn warning" disabled>Reset</button>
+                </div>
+                
+                <!-- Algorithm Info -->
+                <div class="algorithm-info">
+                    <h3>Algorithm Details</h3>
+                    <div id="algorithm-details">
+                        <p><strong>Time Complexity:</strong> <span id="time-complexity">O(n²)</span></p>
+                        <p><strong>Space Complexity:</strong> <span id="space-complexity">O(1)</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Theme Toggle -->
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn">
+                    <span class="light-icon">☀️</span>
+                    <span class="dark-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Right Content Area -->
+        <div class="content">
+            <!-- Visualization Area -->
+            <div class="visualization">
+                <div class="array-container" id="array-container">
+                    <!-- Array bars will be generated here by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Explanation Area -->
+            <div class="explanation">
+                <h3>Visualization Steps</h3>
+                <p id="explanation-text">Select an algorithm and press Start to begin visualization.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+    <script src="utils.js"></script>
+    <script src="algorithms.js"></script>
+    <script src="visualizer.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
